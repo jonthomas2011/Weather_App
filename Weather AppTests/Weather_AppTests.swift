@@ -11,26 +11,25 @@ import XCTest
 
 class Weather_AppTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    //MARK: Location Tests
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testlocationInitialization(){
+        
+        //Success Case
+        
+        let newSuccessEntry = Location(zipcode: 33813, Temperature: 78)
+        XCTAssertNotNil(newSuccessEntry, "new entry successfully created!")
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+        //Failure case
+    
+        let lowNumZip = Location(zipcode: 1, Temperature: 76)
+        XCTAssertNil(lowNumZip, "too few arguments for zipcode")
+    
+        //Failure Case
+        
+        let highNumZip = Location(zipcode: 100000, Temperature: 56)
+        XCTAssertNil(highNumZip, "too many arguments for zipcode")
     }
     
 }

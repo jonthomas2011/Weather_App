@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()
         
-        // Setup the buttons to be put in the system.
+        // Setup the buttons to be put in the system.					
         let item = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(ViewController.endEditingNow) )
         let toolbarButtons = [item]
         
