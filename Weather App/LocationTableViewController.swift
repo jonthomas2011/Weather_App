@@ -19,6 +19,11 @@ class LocationTableViewController: UITableViewController {
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem()
+        
+        if let savedLocations = loadLocations() {
+            locations += savedLocations
+        }
+        else{}
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +40,6 @@ class LocationTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locations.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -60,6 +64,7 @@ class LocationTableViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             locations.removeAtIndex(indexPath.row)
+            saveLocations()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -118,6 +123,23 @@ class LocationTableViewController: UITableViewController {
                 locations.append(location)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
+            
+            // Save the locations.
+            saveLocations()
         }
+    }
+    
+    //MARK: NSCoding
+    
+    func saveLocations() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(locations, toFile: Location.ArchiveURL.path!)
+        
+        if !isSuccessfulSave {
+            print("Failed to save locations...")
+        }
+    }
+    
+    func loadLocations() -> [Location]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Location.ArchiveURL.path!) as? [Location]
     }
 }
