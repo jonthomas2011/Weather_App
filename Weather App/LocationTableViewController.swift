@@ -22,8 +22,8 @@ class LocationTableViewController: UITableViewController {
     }
     
     func loadSampleLocations(){
-        let location1 = Location(zipcode: 33813, Temperature: 75)!
-        let location2 = Location(zipcode: 32608, Temperature: 81)!
+        let location1 = Location(zipcode: "33813", Temperature: "75")!
+        let location2 = Location(zipcode: "32608", Temperature: "81")!
         
         locations += [location1, location2]
     }
@@ -102,4 +102,13 @@ class LocationTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func unwindToLocationList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? LocationViewController, location = sourceViewController.location {
+            // Add a new location.
+            let newIndexPath = NSIndexPath(forRow: locations.count, inSection: 0)
+            locations.append(location)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            
+        }
+    }
 }

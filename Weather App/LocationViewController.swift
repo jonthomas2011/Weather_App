@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LocationViewController.swift
 //  Weather App
 //
 //  Created by Jonathan Thomas on 5/9/16.
@@ -15,13 +15,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LocationViewController: UIViewController, UITextFieldDelegate {
     
 // MARK: Properties
 
-    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
-
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+   
+    //This value is either passed by `LocationTableViewController` in `prepareForSegue(_:sender:)` or constructed as part of adding a new location.
+    var location: Location?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -66,7 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         keyboardDoneButtonView.sizeToFit()
         
         // Setup the buttons to be put in the system.					
-        let item = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(ViewController.endEditingNow) )
+        let item = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(LocationViewController.endEditingNow) )
         let toolbarButtons = [item]
         
         //Put the buttons into the ToolBar and display the tool bar
@@ -77,15 +80,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        //locationTextField.text = textField.text
         resign()
     }
 
-// MARK: Actions
-
-    @IBAction func addNewLocation(sender: AnyObject) {
-        locationLabel.text = "New Location Added!"
+    
+// MARK: Navigation
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(saveButton === sender){
+            let zipcode = locationTextField.text ?? ""
+            let Temperature = "Temp"    //NEED TO CHANGE LATER 
+            
+            // Set the location to be passed to LocationTableViewController after the unwind segue.
+            location = Location(zipcode: zipcode, Temperature: Temperature)
+        }
     }
+    
+// MARK: Actions
     
 }
 

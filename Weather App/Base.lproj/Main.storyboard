@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C5N-9Y-Vae">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rxs-xw-IBQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Location Table View Controller-->
+        <!--My Locations-->
         <scene sceneID="AbS-1i-nIy">
             <objects>
                 <tableViewController id="C5N-9Y-Vae" customClass="LocationTableViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="90" id="lqY-30-R6o" customClass="LocationTableViewCell" customModule="Weather_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lqY-30-R6o" id="pxv-xB-JYb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -45,15 +45,22 @@
                             <outlet property="delegate" destination="C5N-9Y-Vae" id="XXc-dS-5sa"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="My Locations" id="wnT-lQ-bHf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rit-UK-HKa">
+                            <connections>
+                                <segue destination="ZZu-4B-cwI" kind="presentation" identifier="Add Location" id="PPt-fa-VQy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKz-mz-M6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="378"/>
+            <point key="canvasLocation" x="440" y="378"/>
         </scene>
-        <!--View Controller-->
+        <!--New Location-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -63,26 +70,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xTu-az-kox">
-                                <rect key="frame" x="20" y="80" width="560" height="105"/>
+                                <rect key="frame" x="20" y="80" width="560" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nh-vE-Uge">
-                                        <rect key="frame" x="243" y="0.0" width="74" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zipcode" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-5v-cWw">
-                                        <rect key="frame" x="0.0" y="33" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbQ-do-9Q1">
-                                        <rect key="frame" x="218" y="75" width="125" height="30"/>
-                                        <state key="normal" title="Add New Location"/>
-                                        <connections>
-                                            <action selector="addNewLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huJ-QX-AaK"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="S0b-5v-cWw" secondAttribute="trailing" id="evX-8Q-JcS"/>
@@ -94,17 +88,62 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="xTu-az-kox" secondAttribute="trailing" id="RVn-F9-ALA"/>
                             <constraint firstItem="xTu-az-kox" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vng-Ix-4nD"/>
-                            <constraint firstItem="xTu-az-kox" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="t1g-0L-l2Q"/>
+                            <constraint firstItem="xTu-az-kox" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="t1g-0L-l2Q"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Location" id="BWc-f4-568">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KVG-Pt-Ybr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6Xd-MO-ufb">
+                            <connections>
+                                <segue destination="dsL-wU-8oX" kind="unwind" unwindAction="unwindToLocationList:" id="uL8-qu-Xz7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="locationLabel" destination="8nh-vE-Uge" id="O05-WN-rac"/>
                         <outlet property="locationTextField" destination="S0b-5v-cWw" id="FVA-9N-Kw3"/>
+                        <outlet property="saveButton" destination="6Xd-MO-ufb" id="LlH-at-XbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="dsL-wU-8oX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="305" y="378"/>
+            <point key="canvasLocation" x="1929" y="378"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l8n-LP-Wu2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rxs-xw-IBQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJ1-yd-1z7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C5N-9Y-Vae" kind="relationship" relationship="rootViewController" id="Bz2-C9-CfB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6Z-Sf-Zdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="378"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="erb-0g-TnX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZZu-4B-cwI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ppK-sX-eO1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ggR-WT-vxu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSZ-WG-9Di" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="378"/>
         </scene>
     </scenes>
 </document>
