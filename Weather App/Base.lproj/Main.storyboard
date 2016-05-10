@@ -37,6 +37,7 @@
                                 <connections>
                                     <outlet property="TemperatureView" destination="pxv-xB-JYb" id="5aK-h6-UtF"/>
                                     <outlet property="locationLabel" destination="GLQ-aU-0lA" id="39W-0K-c2B"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="Xky-uQ-TP7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -92,7 +93,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Location" id="BWc-f4-568">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KVG-Pt-Ybr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KVG-Pt-Ybr">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="jAG-70-lO9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="6Xd-MO-ufb">
                             <connections>
                                 <segue destination="dsL-wU-8oX" kind="unwind" unwindAction="unwindToLocationList:" id="uL8-qu-Xz7"/>
@@ -143,7 +148,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSZ-WG-9Di" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="378"/>
+            <point key="canvasLocation" x="1187" y="766"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xky-uQ-TP7"/>
+    </inferredMetricsTieBreakers>
 </document>

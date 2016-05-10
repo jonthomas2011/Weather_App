@@ -16,16 +16,6 @@ class LocationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // load sample data
-        loadSampleLocations()
-    }
-    
-    func loadSampleLocations(){
-        let location1 = Location(zipcode: "33813", Temperature: "75")!
-        let location2 = Location(zipcode: "32608", Temperature: "81")!
-        
-        locations += [location1, location2]
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,23 +82,42 @@ class LocationTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowDetail" {
+            let locationDetailViewController = segue.destinationViewController as! LocationViewController
+            // Get the cell that generated this segue.
+            
+            if let selectedLocationCell = sender as? LocationTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedLocationCell)!
+                let selectedLocation = locations[indexPath.row]
+                locationDetailViewController.location = selectedLocation
+            }
+
+        }
+        else if segue.identifier == "AddItem" {
+            print("Adding new Location.")
+        }
     }
-    */
+    
 
     @IBAction func unwindToLocationList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? LocationViewController, location = sourceViewController.location {
-            // Add a new location.
-            let newIndexPath = NSIndexPath(forRow: locations.count, inSection: 0)
-            locations.append(location)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing location.
+                locations[selectedIndexPath.row] = location
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+            }
+            else{
+                // Add new Location
+                let newIndexPath = NSIndexPath(forRow: locations.count, inSection: 0)
+                locations.append(location)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            }
         }
     }
 }

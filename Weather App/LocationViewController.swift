@@ -32,6 +32,14 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
         // Handle the text field’s user input through delegate callbacks.
         locationTextField.delegate = self
         
+        // Set up views if editing an existing Location.
+        if let location = location {
+            navigationItem.title = location.zipcode
+            locationTextField.text = location.zipcode
+        }
+        
+        // Enable the Save button only if the text field has a valid Location name.
+        checkValidLocationName()
     }
 
 // MARK: Helper Methods
@@ -48,6 +56,12 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func checkValidLocationName() {
+        // Disable the Save button if the text field is empty.
+        let text = locationTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
+    
 // MARK: UITextFieldDelegate
     
     // called when 'return' key pressed. return NO to ignore.
@@ -57,12 +71,12 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
         // Sends the keyboard away when pressing the "done" button
         resign()
         return true
-        
     }
+    
+    //BEGIN EDITING
     
     // When clicking on the field, use this method.
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        
         
         // Create a button bar for the number pad
         let keyboardDoneButtonView = UIToolbar()
@@ -79,12 +93,25 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
+    }
+    
+    //END EDITING
+    
     func textFieldDidEndEditing(textField: UITextField) {
+        checkValidLocationName()
+        navigationItem.title = locationTextField.text
         resign()
     }
-
+    
     
 // MARK: Navigation
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
