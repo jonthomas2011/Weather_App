@@ -15,9 +15,12 @@
 
 import UIKit
 
-class LocationViewController: UIViewController, UITextFieldDelegate {
+class LocationViewController: UIViewController, UITextFieldDelegate, WeatherServiceDelegate {
     
 // MARK: Properties
+    
+    let weatherService = WeatherService()
+    var globalTemp = ""
 
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -29,8 +32,9 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        // Handle the text field’s user input through delegate callbacks.
+        // Handle input through delegate callbacks.
         locationTextField.delegate = self
+        self.weatherService.delegate = self
         
         // Set up views if editing an existing Location.
         if let location = location {
@@ -103,9 +107,16 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidLocationName()
         navigationItem.title = locationTextField.text
+        self.weatherService.getWeather(locationTextField.text!)                         ////////////////////////////////////////////////////////////////
         resign()
     }
     
+
+// MARK: WeatherServiceDelegate
+    
+    func setWeather(weather: Weather) {
+        globalTemp = "\(weather.temperature) °"
+    }
     
 // MARK: Navigation
     
@@ -125,14 +136,11 @@ class LocationViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(saveButton === sender){
             let zipcode = locationTextField.text ?? ""
-            let Temperature = "Temp"    //NEED TO CHANGE LATER 
+            let Temperature = globalTemp  
             
             // Set the location to be passed to LocationTableViewController after the unwind segue.
             location = Location(zipcode: zipcode, Temperature: Temperature)
         }
-    }
-    
-// MARK: Actions
-    
+    }    
 }
 

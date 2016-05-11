@@ -49,7 +49,7 @@ class LocationTableViewController: UITableViewController {
         let location = locations[indexPath.row]
 
         cell.locationLabel.text = String(location.zipcode)
-      //  cell.TemperatureView
+        cell.tempLabel.text = String(location.Temperature)
         return cell
     }
     

@@ -12,7 +12,7 @@ class LocationTableViewCell: UITableViewCell {
     
     //MARK: Properties
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var TemperatureView: UIView!
+    @IBOutlet weak var tempLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,6 +18,9 @@
 		42FF5BAD1CE23DDD00D3801C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BAB1CE23DDD00D3801C /* Location.swift */; };
 		42FF5BAF1CE2558500D3801C /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BAE1CE2558500D3801C /* LocationTableViewCell.swift */; };
 		42FF5BB11CE25C9F00D3801C /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BB01CE25C9F00D3801C /* LocationTableViewController.swift */; };
+		42FF5BB31CE2BC0800D3801C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BB21CE2BC0800D3801C /* WeatherService.swift */; };
+		42FF5BB51CE2CE8100D3801C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BB41CE2CE8100D3801C /* Weather.swift */; };
+		42FF5BB71CE2DE2800D3801C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF5BB61CE2DE2800D3801C /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		42FF5BAB1CE23DDD00D3801C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../Location.swift; sourceTree = "<group>"; };
 		42FF5BAE1CE2558500D3801C /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = ../LocationTableViewCell.swift; sourceTree = "<group>"; };
 		42FF5BB01CE25C9F00D3801C /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		42FF5BB21CE2BC0800D3801C /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		42FF5BB41CE2CE8100D3801C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		42FF5BB61CE2DE2800D3801C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 				42FF5BAB1CE23DDD00D3801C /* Location.swift */,
 				424169961CE1085700AD5458 /* AppDelegate.swift */,
 				424169981CE1085700AD5458 /* LocationViewController.swift */,
+				42FF5BB41CE2CE8100D3801C /* Weather.swift */,
+				42FF5BB21CE2BC0800D3801C /* WeatherService.swift */,
+				42FF5BB61CE2DE2800D3801C /* SwiftyJSON.swift */,
 				4241699A1CE1085700AD5458 /* Main.storyboard */,
 				42FF5BB01CE25C9F00D3801C /* LocationTableViewController.swift */,
 				4241699D1CE1085700AD5458 /* Assets.xcassets */,
@@ -269,8 +278,11 @@
 				424169991CE1085700AD5458 /* LocationViewController.swift in Sources */,
 				42FF5BAC1CE23DDD00D3801C /* Location.swift in Sources */,
 				42FF5BAF1CE2558500D3801C /* LocationTableViewCell.swift in Sources */,
+				42FF5BB71CE2DE2800D3801C /* SwiftyJSON.swift in Sources */,
 				42FF5BB11CE25C9F00D3801C /* LocationTableViewController.swift in Sources */,
+				42FF5BB31CE2BC0800D3801C /* WeatherService.swift in Sources */,
 				424169971CE1085700AD5458 /* AppDelegate.swift in Sources */,
+				42FF5BB51CE2CE8100D3801C /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

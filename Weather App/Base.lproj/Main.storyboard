@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -22,21 +23,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLQ-aU-0lA">
-                                            <rect key="frame" x="8" y="21" width="456" height="47"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-zL-3FQ">
+                                            <rect key="frame" x="490" y="21" width="102" height="47"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="102" id="tFS-OT-iK0"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vl5-Q2-7TJ">
-                                            <rect key="frame" x="472" y="8" width="120" height="73"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLQ-aU-0lA">
+                                            <rect key="frame" x="8" y="21" width="474" height="47"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GLQ-aU-0lA" firstAttribute="firstBaseline" secondItem="qgO-zL-3FQ" secondAttribute="firstBaseline" id="66Y-x5-FWW"/>
+                                        <constraint firstItem="qgO-zL-3FQ" firstAttribute="leading" secondItem="GLQ-aU-0lA" secondAttribute="trailing" constant="8" symbolic="YES" id="LmY-cp-ods"/>
+                                        <constraint firstItem="GLQ-aU-0lA" firstAttribute="top" secondItem="pxv-xB-JYb" secondAttribute="topMargin" constant="13" id="cn0-UT-aDn"/>
+                                        <constraint firstItem="qgO-zL-3FQ" firstAttribute="trailing" secondItem="pxv-xB-JYb" secondAttribute="trailingMargin" id="e8Q-ak-DlQ"/>
+                                        <constraint firstItem="GLQ-aU-0lA" firstAttribute="baseline" secondItem="qgO-zL-3FQ" secondAttribute="baseline" id="hR7-EP-rQM"/>
+                                        <constraint firstItem="GLQ-aU-0lA" firstAttribute="centerY" secondItem="pxv-xB-JYb" secondAttribute="centerY" id="oM3-p7-uCN"/>
+                                        <constraint firstItem="GLQ-aU-0lA" firstAttribute="leading" secondItem="pxv-xB-JYb" secondAttribute="leadingMargin" id="qZV-13-yTT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="TemperatureView" destination="pxv-xB-JYb" id="5aK-h6-UtF"/>
                                     <outlet property="locationLabel" destination="GLQ-aU-0lA" id="39W-0K-c2B"/>
+                                    <outlet property="tempLabel" destination="qgO-zL-3FQ" id="NHD-jG-QPd"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="Xky-uQ-TP7"/>
                                 </connections>
                             </tableViewCell>
