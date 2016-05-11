@@ -18,17 +18,17 @@ class Weather_AppTests: XCTestCase {
         
         //Success Case
         
-        let newSuccessEntry = Location(zipcode: 33813, Temperature: 78)
+        let newSuccessEntry = Location(zipcode: "33813", Temperature: "78")
         XCTAssertNotNil(newSuccessEntry, "new entry successfully created!")
     
         //Failure case
     
-        let lowNumZip = Location(zipcode: 1, Temperature: 76)
+        let lowNumZip = Location(zipcode: "1", Temperature: "76")
         XCTAssertNil(lowNumZip, "too few arguments for zipcode")
     
         //Failure Case
         
-        let highNumZip = Location(zipcode: 100000, Temperature: 56)
+        let highNumZip = Location(zipcode: "100000", Temperature: "56")
         XCTAssertNil(highNumZip, "too many arguments for zipcode")
     }
     
