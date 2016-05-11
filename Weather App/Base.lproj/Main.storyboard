@@ -23,7 +23,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-zL-3FQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-zL-3FQ">
                                             <rect key="frame" x="490" y="21" width="102" height="47"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="102" id="tFS-OT-iK0"/>
@@ -61,6 +61,10 @@
                             <outlet property="delegate" destination="C5N-9Y-Vae" id="XXc-dS-5sa"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="F°" id="pww-d9-rxH"/>
+                        <barButtonItem title="C°" width="44" id="Pma-SC-rRX"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="My Locations" id="wnT-lQ-bHf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rit-UK-HKa">
                             <connections>
@@ -68,6 +72,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKz-mz-M6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
